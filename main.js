@@ -10,15 +10,15 @@ msg is the Message object
 let commands = {
   repeat: async (message, args) => {
     message.channel.send(args.join(' '))
+  },
+  new: async (message, args) => { // Lets users create a new command within the app
+    if (args) {
+      let name = args[0]
+      args.shift()
+      commands[name] = new Function('message', 'args', args.join(' ')) // eslint-disable-line
+      message.channel.send(`🎉Created ${name}!`)
+    }
   }
-  // new: async (message, args) => { // Lets users create a new command within the app
-  //   if (args) {
-  //     let name = args[0]
-  //     args.shift()
-  //     commands[name] = new Function('message', 'args', args.join(' ')) // eslint-disable-line
-  //     message.channel.send(`🎉Created ${name}!`)
-  //   }
-  // }
 }
 
 // If you're just adding commands, ignore the below code.
