@@ -66,7 +66,7 @@ function User (name, url) {
 
 // Create the users.
 let browser = new User('You', 'https://yt3.ggpht.com/-7zFDHK5X45w/AAAAAAAAAAI/AAAAAAAAAAA/QJfHeLTEZwE/s900-c-k-no-mo-rj-c0xffffff/photo.jpg')
-let bot = new User('Bot', 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/209/robot-face_1f916.png')
+let bot = new User('Bot', './images/bot.png')
 
 let selector = document.querySelector('#input') // Where you type the command
 function processCommand (msg) { // This processes the commmand
