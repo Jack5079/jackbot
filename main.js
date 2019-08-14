@@ -18,6 +18,9 @@ let commands = {
       commands[name] = new Object.getPrototypeOf(async function () { }).constructor('message', 'args', args.join(' ')) // eslint-disable-line
       message.channel.send(`🎉Created ${name}!`)
     }
+  },
+  say: async (message, args) => {
+    message.channel.send(args.join(' ')); message.delete()
   }
 }
 
