@@ -8,7 +8,7 @@ args is an array of arguments passed to the command
 msg is the Message object
 */
 let commands = {
-  repeat: async (message, args) => {
+  repeat: async (message, args) => { // Repeats what the user typed after
     message.channel.send(args.join(' '))
   },
   new: async (message, args) => { // Lets users create a new command within the app
@@ -35,7 +35,6 @@ function Message (content, sender) {
   this.author = sender
   this.channel = document.body
   this.channel.send = (content) => { Message(content, bot) }
-
   let html = document.createElement('div')
   let pfp = document.createElement('img')
   let text = document.createElement('p')
@@ -47,6 +46,7 @@ function Message (content, sender) {
   text.innerText = content
   html.appendChild(text)
   document.body.appendChild(html)
+  this.delete = () => html.remove()
 }
 
 /**
