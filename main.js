@@ -12,11 +12,11 @@ let commands = {
     message.channel.send(args.join(' '))
   },
   new: async (message, args) => { // Lets users create a new command within the app
-    if (args) {
-      let name = args[0]
-      args.shift()
-      commands[name] = new Async('message', 'args', args.join(' ')) // eslint-disable-line
-      message.channel.send(`🎉Created ${name}!`)
+    if (args.length) {
+      let name = args[0] // record the name before we remove it
+      args.shift() // remove the name
+      commands[name] = new Async('message', 'args', args.join(' ')) // make a command with the arguments that are left
+      message.channel.send(`🎉Created ${name}!`) // tell the user
     }
   },
   say: async (message, args) => {
