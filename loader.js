@@ -56,4 +56,3 @@ function processCommand (msg) { // This processes the commmand
 selector.addEventListener('keyup', (e) => { // For every keypress
   if (e.key === 'Enter') processCommand(new Message(selector.value, browser)) // If it's enter, run the command
 })
-}) ()
