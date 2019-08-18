@@ -1,12 +1,4 @@
-/*
-Welcome to my code
-JackBot Online was made to let people use JackBot's (my discord bot) commands in the browser.
-*/
-/*
-args is an array of arguments passed to the command
-msg is the Message object
-*/
-let commands = {
+let commands = { // The command list
   repeat: async (message, args) => { // Repeats what the user typed after
     message.channel.send(args.join(' '))
   },
