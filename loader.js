@@ -1,4 +1,4 @@
-import { commands } from './commands.mjs'
+import commands from './commands.mjs'
 /**
  * Creates a message.
  * @constructor
