@@ -2,7 +2,6 @@
 Welcome to my code
 JackBot Online was made to let people use JackBot's (my discord bot) commands in the browser.
 */
-let Async = Object.getPrototypeOf(async function () { }).constructor
 /*
 args is an array of arguments passed to the command
 msg is the Message object
@@ -15,12 +14,15 @@ let commands = {
     if (args.length) {
       let name = args[0] // record the name before we remove it
       args.shift() // remove the name
-      commands[name] = new Async('message', 'args', args.join(' ')) // make a command with the arguments that are left
+      commands[name] = new (Object.getPrototypeOf(async () => { }).constructor)('message', 'args', args.join(' ')) // make a command with the arguments that are left
       message.channel.send(`🎉Created ${name}!`) // tell the user
     }
   },
   say: async (message, args) => {
     message.channel.send(args.join(' ')); message.delete()
+  },
+  votepoop: async (message, args) => {
+    message.channel.send('😎 i voted for poop')
   }
 }
 
