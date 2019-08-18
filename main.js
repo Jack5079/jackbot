@@ -18,10 +18,10 @@ let commands = {
       message.channel.send(`🎉Created ${name}!`) // tell the user
     }
   },
-  say: async (message, args) => {
+  say: async (message, args) => { // Like -repeat but it hides the message with the command
     message.channel.send(args.join(' ')); message.delete()
   },
-  votepoop: async (message, args) => {
+  votepoop: async (message, args) => { // I was requested to add this
     message.channel.send('😎 i voted for poop')
   }
 }
