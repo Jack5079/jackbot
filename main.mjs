@@ -22,7 +22,6 @@ const commands = { // The command list
 
 // If you're just adding commands, ignore the below code.
 
-const selector = document.querySelector('#input') // Where you type the command
 function processCommand (msg) { // This processes the commmand
   const args = msg.content.split(' ') // Create the arguments that will be used
 
@@ -33,6 +32,6 @@ function processCommand (msg) { // This processes the commmand
     }
   })
 }
-selector.addEventListener('keyup', (e) => { // For every keypress
-  if (e.key === 'Enter') processCommand(new Message(selector.value, browser)) // If it's enter, run the command
+document.querySelector('#input').addEventListener('keyup', (e) => { // For every keypress
+  if (e.key === 'Enter') processCommand(new Message(e.currentTarget.value, browser)) // If it's enter, run the command
 })
