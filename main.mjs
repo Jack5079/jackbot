@@ -1,4 +1,4 @@
-import { Message } from './constructor.mjs'
+import { Message } from './message.mjs'
 import { browser } from './users.mjs'
 const commands = { // The command list
   repeat: async function (message, args) { // Repeats what the user typed after
