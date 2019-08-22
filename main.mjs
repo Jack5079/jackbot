@@ -22,13 +22,8 @@ const commands = { // The command list
 
 // Anything below this line is used to load the bot
 function processCommand (msg) { // This processes the commmand
-  const args = msg.content.split(' ') // Create the arguments that will be used
-
   Object.keys(commands).forEach((name) => { // For every command
-    if (args[0] === '-' + name) { // If the first argument (the command) is the command
-      args.shift() // Remove the command from the argument
-      commands[name](msg, args) // Run the command
-    }
+    if (msg.content.startsWith(`-${name} `)) commands[name](msg, msg.content.substring(2 + name.length).split(' ')) // Run the command
   })
 }
 document.querySelector('#input').addEventListener('keyup', (e) => { // For every keypress
