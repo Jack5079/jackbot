@@ -1,5 +1,5 @@
 import { Message } from './constructor.mjs'
-import { browser } from 'users.mjs'
+import { browser } from './users.mjs'
 const commands = { // The command list
   repeat: async function (message, args) { // Repeats what the user typed after
     message.channel.send(args.join(' '))
