@@ -21,11 +21,12 @@ const commands = { // The command list
 }
 
 // Anything below this line is used to load the bot
-function processCommand (msg) { // This processes the commmand
-  Object.keys(commands).forEach((name) => { // For every command
-    if (msg.content.startsWith(`-${name} `)) commands[name](msg, msg.content.substring(2 + name.length).split(' ')) // Run the command
-  })
-}
 document.querySelector('#input').addEventListener('keyup', (e) => { // For every keypress
-  if (e.key === 'Enter') processCommand(new Message(e.currentTarget.value, browser)) // If it's enter, run the command
+  if (e.key === 'Enter') { // If it's enter
+    (msg => { // This processes the commmand
+      Object.keys(commands).forEach((name) => { // For every command
+        if (msg.content.startsWith(`-${name}`)) commands[name](msg, msg.content.substring(2 + name.length).split(' ')) // Run the command
+      })
+    })(new Message(e.currentTarget.value, browser))
+  }
 })
