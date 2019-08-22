@@ -1,0 +1,9 @@
+icons:
+- *.png
+
+style:
+- *.css
+
+pwa:
+- pwabuilder-sw.js
+- manifest.json
