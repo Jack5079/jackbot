@@ -8,7 +8,7 @@ const commands = { // The command list
     if (args.length) {
       const name = args[0] // record the name before we remove it
       args.shift() // remove the name
-      commands[name] = new (Object.getPrototypeOf(async () => { }).constructor)('message', 'args', args.join(' ')) // make a command with the arguments that are left
+      this[name] = new (Object.getPrototypeOf(async () => { }).constructor)('message', 'args', args.join(' ')) // make a command with the arguments that are left
       message.channel.send(`🎉Created ${name}!`) // tell the user
     }
   },
