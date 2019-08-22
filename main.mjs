@@ -20,7 +20,7 @@ const commands = { // The command list
   }
 }
 
-// Anything below this line is used to load the bot
+// Anything below this line is used to load the "bot"
 document.querySelector('#input').addEventListener('keyup', (e) => { // For every keypress
   if (e.key === 'Enter') { // If it's enter
     (msg => { // This processes the commmand
