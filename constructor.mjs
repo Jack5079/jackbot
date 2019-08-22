@@ -6,8 +6,7 @@
  * @param {String} url The URL of the profile picture.
  */
 function User (name, url) {
-  this.name = name
-  this.url = url
+  return { name, url }
 }
 
 /**
@@ -18,11 +17,8 @@ function User (name, url) {
  * @param {User} sender Who (or what) sent the message?
  */
 function Message (content, sender) {
-  this.content = content
-  this.createdAt = new Date()
-  this.author = sender
-  this.channel = document.body
-  this.channel.send = (content) => { Message(content, new User('Bot', './images/bot.png')) }
+  const channel = document.body
+  channel.send = (content) => { Message(content, new User('Bot', './images/bot.png')) }
   const html = document.createElement('div')
   const pfp = document.createElement('img')
   const text = document.createElement('p')
@@ -34,6 +30,12 @@ function Message (content, sender) {
   text.innerText = content
   html.appendChild(text)
   document.body.appendChild(html)
-  this.delete = () => html.remove()
+  return {
+    content: content,
+    author: sender,
+    delete: () => html.remove(),
+    channel: channel,
+    createdAt: new Date()
+  }
 }
 export { User, Message }
