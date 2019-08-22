@@ -20,8 +20,7 @@ const commands = { // The command list
   }
 }
 
-// If you're just adding commands, ignore the below code.
-
+// Anything below this line is used to load the bot
 function processCommand (msg) { // This processes the commmand
   const args = msg.content.split(' ') // Create the arguments that will be used
 
