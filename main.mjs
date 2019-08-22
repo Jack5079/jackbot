@@ -23,9 +23,9 @@ const commands = { // The command list
 // Anything below this line is used to load the "bot"
 document.querySelector('#input').addEventListener('keyup', (e) => { // For every keypress
   if (e.key === 'Enter') { // If it's enter
-    (msg => { // This processes the commmand
-      Object.keys(commands).forEach((name) => { // For every command
-        if (msg.content.startsWith(`-${name}`)) commands[name](msg, msg.content.substring(2 + name.length).split(' ')) // Run the command
+    (m => { // This processes the commmand
+      Object.keys(commands).forEach((n) => { // For every command
+        if (m.content.startsWith(`-${n}`)) commands[n](m, m.content.substring(2 + n.length).split(' ')) // Run the command if input = command (also provide args)
       })
     })(new Message(e.currentTarget.value, browser))
   }
