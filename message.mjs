@@ -28,4 +28,5 @@ function Message (content, sender) {
     createdAt: new Date()
   }
 }
-export { Message }
+
+export default Message

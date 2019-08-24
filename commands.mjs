@@ -1,6 +1,6 @@
-import { Message } from './message.mjs'
-import { browser } from './users.mjs'
-const commands = { // The command list
+import loadCommands from './loader.mjs' // Import the loader
+
+loadCommands({ // The command list
   repeat (message, args) { // Repeats what the user typed after
     message.channel.send(args.join(' '))
   },
@@ -18,16 +18,5 @@ const commands = { // The command list
   },
   votepoop (message, args) { // I was requested to add this
     message.channel.send('😎 i voted for poop')
-  }
-}
-
-// Anything below this line is used to load the "bot"
-document.querySelector('#input').addEventListener('keyup', e => { // For every keypress
-  if (e.key === 'Enter') { // If it's enter
-    (m => { // This processes the commmand
-      Object.keys(commands).forEach((n) => { // For every command
-        if (m.content.startsWith(`-${n}`)) commands[n](m, m.content.substring(2 + n.length).split(' ')) // Run the command if input = command (also provide args)
-      })
-    })(new Message(e.currentTarget.value, browser))
   }
 })
