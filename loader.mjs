@@ -1,6 +1,7 @@
 import Message from './message.mjs'
 import { browser } from './users.mjs'
-function load (commands) {
+
+export default function (commands) {
   document.querySelector('#input').addEventListener('keyup', e => { // For every keypress
     if (e.key === 'Enter') { // If it's enter
       (m => { // This processes the commmand
@@ -11,5 +12,3 @@ function load (commands) {
     }
   })
 }
-
-export default load
