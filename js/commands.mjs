@@ -19,4 +19,6 @@ loadCommands({ // The command list
   votepoop (message, args) { // I was requested to add this
     message.channel.send('😎 i voted for poop')
   }
+}, { // The options
+  prefix: '-' // What you need to put at the start of the command
 })
