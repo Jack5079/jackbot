@@ -22,7 +22,7 @@ export default function (commands, options) {
     if (e.key === 'Enter') { // If it's enter
       (message => { // This processes the commmand
         Object.keys(commands).forEach((name) => { // For every command
-          if (message.content.startsWith(`${options.prefix}${name}`)) commands[name](message, message.content.substring(2 + name.length).split(' ')) // Run the command if input = command (also provide args)
+          if (message.content.startsWith(`${options.prefix}${name}`)) commands[name](message, message.content.substring(options.prefix.length + 1 + name.length).split(' ')) // Run the command if input = command (also provide args)
         })
       })(new Message(e.currentTarget.value, browser))
       e.currentTarget.value = ''
