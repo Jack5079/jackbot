@@ -1,4 +1,5 @@
-#input {
+input {
+  height: 1em;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0), black);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: white;
@@ -9,13 +10,15 @@
   left: 0;
     position: fixed;
     bottom: 0;
+    transition: font-size 1s;
 }
 input::placeholder {
   font-style: italic;
   font-weight: lighter;
 }
-#input:focus {
+input:focus {
   outline: 0;
+  font-size: 2em;
 }
 
 body {
