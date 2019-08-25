@@ -27,8 +27,8 @@ export default function (commands, options) {
             commands[name](message, args) // Run the command!
           }
         })
-      })(new Message(e.currentTarget.value, browser))
-      e.currentTarget.value = ''
+      })(new Message(e.currentTarget.value, browser)) // the message value inside this function = a new message
+      e.currentTarget.value = '' // Reset the field
     }
   })
 }
