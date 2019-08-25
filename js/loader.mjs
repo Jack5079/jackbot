@@ -25,6 +25,7 @@ export default function (commands, options) {
           if (message.content.startsWith(`${options.prefix}${name}`)) commands[name](message, message.content.substring(2 + name.length).split(' ')) // Run the command if input = command (also provide args)
         })
       })(new Message(e.currentTarget.value, browser))
+      e.currentTarget.value = ''
     }
   })
 }
