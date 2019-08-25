@@ -2,7 +2,7 @@ import { bot } from './users.mjs'
 /**
  * Creates a message.
  * @constructor
- * @author: Jack5079
+ * @author Jack5079
  * @param {String} content The content of the message
  * @param {User} sender Who (or what) sent the message?
 */
