@@ -4,7 +4,15 @@ import { bot } from './users.mjs'
  * @constructor
  * @author Jack5079
  * @param {String} content The content of the message
- * @param {User} sender Who (or what) sent the message?
+ * @param {Object} sender An object with a name and url property
+ * @example <caption>Create a message as a bot</caption>
+ * import Message from './message.mjs'
+ * const bot = {
+ *    name: 'Your computer',
+ *    url: './images/bot.png'
+ * }
+ * const message = new Message('Hello World!', bot)
+
 */
 function Message (content, sender) {
   if (!content) throw Error('No content!')
