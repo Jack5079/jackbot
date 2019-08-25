@@ -13,8 +13,8 @@ import { browser } from './users.mjs'
  *    prefix: '-'
  * })
  * @author Jack5079
- * @param {object} commands An object of functions.
- * @param {object} options The options that will be used when loading.
+ * @param {Object} commands An object of functions.
+ * @param {Object} options The options that will be used when loading.
  */
 export default function (commands, options) {
   document.querySelector('#input').addEventListener('keyup', e => { // For every keypress
