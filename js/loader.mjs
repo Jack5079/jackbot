@@ -3,7 +3,7 @@ import { browser } from './users.mjs'
 /**
  * Loads commands and settings.
  * @example <caption>A bot with a say command and the prefix "-"</caption>
- * import loadCommands from './path/to/loader.mjs'
+ * import loadCommands from './loader.mjs'
  * loadCommands({
  *    say (message, args) {
  *      message.channel.send(args.join(' '))
@@ -13,6 +13,7 @@ import { browser } from './users.mjs'
  *    prefix: '-'
  * })
  * @author Jack5079
+ * @module ./loader.mjs
  * @param {Object} commands An object of functions.
  * @param {Object} options The options that will be used when loading.
  */
