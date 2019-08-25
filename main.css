@@ -10,7 +10,10 @@
     position: fixed;
     bottom: 0;
 }
-
+input::placeholder {
+  font-style: italic;
+  font-weight: lighter;
+}
 #input:focus {
   outline: 0;
 }
