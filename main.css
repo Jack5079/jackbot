@@ -22,12 +22,8 @@ body {
   background: darkslategray;
 }
 
-
-div {
-  margin-bottom: 10%;
-}
 img {
-  width: 5%;
+  width: 5em;
   border-radius: 50em;
   float: left;
   margin-right: 2em;

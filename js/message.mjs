@@ -7,6 +7,7 @@ import { bot } from './users.mjs'
  * @param {User} sender Who (or what) sent the message?
 */
 function Message (content, sender) {
+  if (!content) throw Error('No content!')
   const channel = document.body
   channel.send = (content) => Message(content, bot)
   const html = document.createElement('div')
