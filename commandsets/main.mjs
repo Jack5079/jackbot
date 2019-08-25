@@ -1,4 +1,4 @@
-import loadCommands from './loader.mjs' // Import the loader
+import loadCommands from '../js/loader.mjs' // Import the loader
 
 loadCommands({ // The command list
   repeat (message, args) { // Repeats what the user typed after
