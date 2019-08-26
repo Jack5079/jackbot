@@ -14,7 +14,8 @@ loadCommands({ // The command list
     }
   },
   say (message, args) { // Like -repeat but it hides the message with the command
-    message.channel.send(args.join(' ')); message.delete()
+    message.channel.send(args.join(' '))
+    message.delete()
   },
   votepoop (message, args) { // I was requested to add this
     message.channel.send('😎 i voted for poop')
