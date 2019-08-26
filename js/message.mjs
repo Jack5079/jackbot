@@ -16,6 +16,9 @@ import { bot } from './users.mjs'
 */
 function Message (content, sender) {
   if (!content) throw Error('No content!')
+  if (!sender) throw Error('You forgot to provide a sender!')
+  if (!sender.name) console.warn('No name of sender')
+  if (!sender.url) console.warn('Please provide a URL in the sender object.')
   const channel = document.body
   channel.send = (content) => Message(content, bot)
   const html = document.createElement('div')
