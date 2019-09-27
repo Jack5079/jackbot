@@ -1,6 +1,5 @@
 import { bot } from './users.mjs'
-
-class Message {
+export default class Message {
   /**
   * Creates a message.
   * @constructor
@@ -50,5 +49,3 @@ class Message {
     new Message( content, bot )
   }
 }
-
-export default Message
