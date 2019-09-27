@@ -1,20 +1,21 @@
 import { bot } from './users.mjs'
-/**
- * Creates a message.
- * @constructor
- * @author Jack5079
- * @param {String} content The content of the message
- * @param {Object} sender An object with a name and url property
- * @example <caption>Create a message as a bot</caption>
- * import Message from './message.mjs'
- * const bot = {
- *    name: 'Your computer',
- *    url: './images/bot.png'
- * }
- * const message = new Message('Hello World!', bot)
 
-*/
 class Message {
+  /**
+  * Creates a message.
+  * @constructor
+  * @author Jack5079
+  * @param {String} content The content of the message
+  * @param {Object} sender An object with a name and url property
+  * @example <caption>Create a message as a bot</caption>
+  * import Message from './message.mjs'
+  * const bot = {
+  *    name: 'Your computer',
+  *    url: './images/bot.png'
+  * }
+  * const message = new Message('Hello World!', bot)
+  
+  */
   constructor ( content, sender ) {
     if ( !content ) throw Error( 'No content!' )
     if ( !sender ) throw Error( 'You forgot to provide a sender!' )
