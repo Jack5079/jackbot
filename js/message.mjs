@@ -35,13 +35,13 @@ class Message {
     this.author = sender
     this.createdAt = new Date()
   }
-    get content() {
-        return this.html.querySelector('p').innerText
-    }
+  get content () {
+    return this.html.querySelector( 'p' ).innerText
+  }
 
-    set content(val) {
-        this.html.querySelector('p').innerText = val
-    }
+  set content ( val ) {
+    this.html.querySelector( 'p' ).innerText = val
+  }
   delete () {
     this.html.remove()
   }
