@@ -14,7 +14,7 @@ class Message {
   *    url: './images/bot.png'
   * }
   * const message = new Message('Hello World!', bot)
-  
+
   */
   constructor ( content, sender ) {
     if ( !content ) throw Error( 'No content!' )
@@ -32,11 +32,16 @@ class Message {
     text.innerText = content
     this.html.appendChild( text )
     document.body.appendChild( this.html )
-    this.content = content
     this.author = sender
     this.createdAt = new Date()
   }
+    get content() {
+        return this.html.querySelector('p').innerText
+    }
 
+    set content(val) {
+        this.html.querySelector('p').innerText = val
+    }
   delete () {
     this.html.remove()
   }
