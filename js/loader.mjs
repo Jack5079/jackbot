@@ -6,7 +6,7 @@ import { browser } from './users.mjs'
  * import loadCommands from './loader.mjs'
  * loadCommands({
  *    say (message, args) {
- *      message.channel.send(args.join(' '))
+ *      message.reply(args.join(' '))
  *    }
  *  },
  *  {
