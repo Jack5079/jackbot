@@ -22,7 +22,7 @@ export default function ( commands, options ) {
     if ( e.key === 'Enter' ) { // If it's enter
       let message = new Message( e.currentTarget.value, browser )
       Object.keys( commands ).forEach( ( name ) => { // For every command
-        if ( message.content.startsWith( `${ options.prefix }${ name }` ) && message.content.length > name.length ) { // If it matches a command
+        if ( message.content.split( ' ' )[ 0 ] == `${ options.prefix }${ name }` ) { // If it matches a command
           const args = message.content.substring( options.prefix.length + 1 + name.length ).split( ' ' ) // Make the args array
           commands[ name ]( message, args ) // Run the command!
         }
