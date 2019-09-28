@@ -1,5 +1,13 @@
 import loadCommands from '../js/loader.mjs' // Import the loader
 
+let deferredPrompt
+window.addEventListener( 'beforeinstallprompt', ( e ) => {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+} )
+
 loadCommands( { // The command list
   repeat ( message, args ) { // Repeats what the user typed after
     message.reply( args.join( ' ' ) )
@@ -17,8 +25,23 @@ loadCommands( { // The command list
     message.reply( args.join( ' ' ) )
     message.delete()
   },
-  votepoop ( message, args ) { // I was requested to add this
+  votepoop ( message ) { // I was requested to add this
     message.reply( '😎 i voted for poop' )
+  },
+
+  install ( message ) {
+    if ( deferredPrompt ) {
+      deferredPrompt.prompt();
+      // Wait for the user to respond to the prompt
+      deferredPrompt.userChoice.then( ( choiceResult ) => {
+        if ( choiceResult.outcome === 'accepted' ) {
+          message.reply( 'Thanks for installing JackBot Web!' )
+        } else {
+          message.reply( 'You didn\'t install it? Sorry that our website wasn\'t worth installing!' )
+        }
+        deferredPrompt = null;
+      } )
+    } else message.reply( 'Your browser doesn\'t support this feature.' )
   }
 }, { // The options
   prefix: '-' // What you need to put at the start of the command
