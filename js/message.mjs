@@ -65,7 +65,7 @@ export default class Message {
   /**
     * Replies to the message.
     * @author Jack5079
-    * @example <caption>A simple commad command</caption>
+    * @example <caption>A simple talking command</caption>
     * import loader from '../js/loader.mjs'
     * loader({
     *   stuff(message) {
