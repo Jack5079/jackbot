@@ -16,7 +16,6 @@ export default class Message {
   *    url: './images/bot.png'
   * }
   * const message = new Message('Hello World!', bot)
-
   */
   constructor ( content, sender ) {
     if ( !content ) throw Error( 'No content!' )
@@ -56,7 +55,6 @@ export default class Message {
   *     message.delete() // Delete the message!!!!
   *   }
   * },{prefix: '~'})
-  
   */
   delete () {
     this.html.remove()
@@ -72,7 +70,6 @@ export default class Message {
     *     message.reply('I\'m stuff 😳')
     *   }
     * },{prefix: 'reply!'})
-  
     */
   reply ( content ) {
     return new Message( content, bot )
