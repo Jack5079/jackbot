@@ -1,3 +1,4 @@
+/** @module ../js/loader.mjs */
 import Message from './message.mjs'
 import { browser } from './users.mjs'
 /**
@@ -13,7 +14,6 @@ import { browser } from './users.mjs'
  *    prefix: '-'
  * })
  * @author Jack5079
- * @module ./loader.mjs
  * @param {Object} commands An object of functions.
  * @param {Object} options The options that will be used when loading.
  */

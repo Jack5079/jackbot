@@ -1,4 +1,7 @@
+/** @module ../js/message.mjs */
 import { bot } from './users.mjs'
+
+/** Class representing a message. */
 export default class Message {
   /**
   * Creates a message.
@@ -7,7 +10,7 @@ export default class Message {
   * @param {String} content The content of the message
   * @param {Object} sender An object with a name and url property
   * @example <caption>Create a message as a bot</caption>
-  * import Message from './message.mjs'
+  * import Message from '../js/message.mjs'
   * const bot = {
   *    name: 'Your computer',
   *    url: './images/bot.png'
@@ -41,11 +44,37 @@ export default class Message {
   set content ( val ) {
     this.html.querySelector( 'p' ).innerText = val
   }
+
+  /**
+  * Deletes the message.
+  * @author Jack5079
+  * @example <caption>A say command</caption>
+  * import loader from '../js/loader.mjs'
+  * loader({
+  *   say(message, args) {
+  *     message.reply(args.join(' ')) // Copy the user
+  *     message.delete() // Delete the message!!!!
+  *   }
+  * },{prefix: '~'})
+  
+  */
   delete () {
     this.html.remove()
   }
 
+  /**
+    * Replies to the message.
+    * @author Jack5079
+    * @example <caption>A simple commad command</caption>
+    * import loader from '../js/loader.mjs'
+    * loader({
+    *   stuff(message) {
+    *     message.reply('I\'m stuff 😳')
+    *   }
+    * },{prefix: 'reply!'})
+  
+    */
   reply ( content ) {
-    new Message( content, bot )
+    return new Message( content, bot )
   }
 }
