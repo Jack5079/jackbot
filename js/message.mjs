@@ -15,7 +15,7 @@ export default class Message {
   * }
   * const message = new Message('Hello World!', bot)
   */
-  constructor ( content, sender ) {
+  constructor ( content, sender = { name: 'No Username', url: './images/bot.png' } ) {
     if ( !content ) throw Error( 'No content!' )
     if ( !sender ) throw Error( 'You forgot to provide a sender!' )
     if ( !sender.name ) console.warn( 'No name of sender' )
