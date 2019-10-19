@@ -44,5 +44,9 @@ new Commands( { // The command list
     } else message.reply( 'Your browser doesn\'t support this feature.' )
   }
 }, { // The options
-  prefix: '-' // What you need to put at the start of the command
+  prefix: '-', // What you need to put at the start of the command
+  user: { // Who the bot will post as
+  "name": "Your computer",
+  "url": "./images/bot.png"
+}
 } )

@@ -1,6 +1,4 @@
 /** @module ../js/message.mjs */
-import { bot } from './users.mjs'
-
 /** Class representing a message. */
 export default class Message {
   /**
@@ -58,20 +56,5 @@ export default class Message {
   */
   delete () {
     this.html.remove()
-  }
-
-  /**
-    * Replies to the message.
-    * @author Jack5079
-    * @example <caption>A simple talking command</caption>
-    * import loader from '../js/loader.mjs'
-    * new loader({
-    *   stuff(message) {
-    *     message.reply('I\'m stuff 😳')
-    *   }
-    * },{prefix: 'reply!'})
-    */
-  reply ( content ) {
-    return new Message( content, bot )
   }
 }

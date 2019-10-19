@@ -15,10 +15,14 @@
  * @param {Object} commands An object of functions.
  * @param {Object} options The options that will be used when loading.
  */
+import Message from './message.mjs'
 export default class Loader {
   constructor ( commands, options ) {
     this.listener = document.querySelector( '#input' ).addEventListener( 'botmessage', event => { // For every keypress
-      const message = event.detail
+      let message = event.detail
+      message.reply = content => {
+        return new Message( content, options.user )
+      }
       Object.keys( commands ).forEach( ( name ) => { // For every command
         if ( message.content.split( ' ' )[ 0 ] == `${ options.prefix }${ name }` ) { // If it matches a command
           const args = message.content.substring( options.prefix.length + 1 + name.length ).split( ' ' ) // Make the args array
