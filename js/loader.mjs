@@ -1,6 +1,4 @@
 /** @module ../js/loader.mjs */
-import Message from './message.mjs'
-import { browser } from './users.mjs'
 /**
  * Loads commands and settings.
  * @example <caption>A bot with a say command and the prefix "-"</caption>
@@ -19,17 +17,14 @@ import { browser } from './users.mjs'
  */
 export default class Loader {
   constructor ( commands, options ) {
-    this.listener = document.querySelector( '#input' ).addEventListener( 'keyup', e => { // For every keypress
-      if ( e.key === 'Enter' ) { // If it's enter
-        let message = new Message( e.currentTarget.value, browser )
-        Object.keys( commands ).forEach( ( name ) => { // For every command
-          if ( message.content.split( ' ' )[ 0 ] == `${ options.prefix }${ name }` ) { // If it matches a command
-            const args = message.content.substring( options.prefix.length + 1 + name.length ).split( ' ' ) // Make the args array
-            commands[ name ]( message, args ) // Run the command!
-          }
-        } )
-        e.currentTarget.value = '' // Reset the field
-      }
+    this.listener = document.querySelector( '#input' ).addEventListener( 'botmessage', event => { // For every keypress
+      const message = event.detail
+      Object.keys( commands ).forEach( ( name ) => { // For every command
+        if ( message.content.split( ' ' )[ 0 ] == `${ options.prefix }${ name }` ) { // If it matches a command
+          const args = message.content.substring( options.prefix.length + 1 + name.length ).split( ' ' ) // Make the args array
+          commands[ name ]( message, args ) // Run the command!
+        }
+      } )
     } )
   }
 
