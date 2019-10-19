@@ -50,10 +50,6 @@ new Commands(
           deferredPrompt = null
         })
       } else message.reply("Your browser doesn't support this feature.")
-    },
-
-    docs (message) {
-      message.reply('https://jack5079.github.io/jackbot-web/docs/')
     }
   },
   {
