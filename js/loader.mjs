@@ -1,25 +1,25 @@
 /** @module ../js/loader.mjs */
-/**
- * Loads commands and settings.
- * @example <caption>A bot with a say command and the prefix "-"</caption>
- * import loadCommands from './loader.mjs'
- * loadCommands({
- *    say (message, args) {
- *      message.reply(args.join(' '))
- *    }
- *  },
- *  {
- *    prefix: '-'
- * })
- * @author Jack5079
- * @param {Object} commands An object of functions.
- * @param {Object} options The options that will be used when loading.
- */
 import Message from './message.mjs'
 
 
 export default class Loader {
-  constructor ( commands, options ) {
+  /**
+   * Loads commands and settings.
+   * @example <caption>A bot with a say command and the prefix "-"</caption>
+   * import Loader from './loader.mjs'
+   * new Loader({
+   *    say (message, args) {
+   *      message.reply(args.join(' '))
+   *    }
+   *  },
+   *  {
+   *    prefix: '-'
+   * })
+   * @author Jack5079
+   * @param {Object} commands An object of functions.
+   * @param {Object} options The options that will be used when loading.
+   */
+    constructor ( commands, options ) {
     document.querySelector( '#input' ).addEventListener( 'botmessage', event => { // For every keypress
       let message = event.detail // Get the message
       message.reply = content => { // Add a reply function
