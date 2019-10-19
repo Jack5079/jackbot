@@ -1,11 +1,21 @@
+name: Format Code
+
 on: push
-name: Node Code Formatter
+
 jobs:
-  lint:
-    name: Node Code Formatter
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: Node Code Formatter
-      uses: MarvinJWendt/run-node-formatter@1.2.1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm install
+      - run: npm run format
+      
+      - uses: stefanzweifel/git-auto-commit-action@v2.1.0
+        with:
+            commit_message: Format code
+            branch: ${{ github.head_ref }}
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
