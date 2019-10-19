@@ -49,7 +49,7 @@ export default class Message {
   * @author Jack5079
   * @example <caption>A say command</caption>
   * import loader from '../js/loader.mjs'
-  * loader({
+  * new loader({
   *   say(message, args) {
   *     message.reply(args.join(' ')) // Copy the user
   *     message.delete() // Delete the message!!!!
@@ -65,7 +65,7 @@ export default class Message {
     * @author Jack5079
     * @example <caption>A simple talking command</caption>
     * import loader from '../js/loader.mjs'
-    * loader({
+    * new loader({
     *   stuff(message) {
     *     message.reply('I\'m stuff 😳')
     *   }
