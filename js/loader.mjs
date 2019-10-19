@@ -17,11 +17,9 @@
  */
 import Message from './message.mjs'
 
-let count = 0
 
 export default class Loader {
   constructor ( commands, options ) {
-    count++
     document.querySelector( '#input' ).addEventListener( 'botmessage', event => { // For every keypress
       let message = event.detail // Get the message
       message.reply = content => { // Add a reply function
@@ -34,9 +32,5 @@ export default class Loader {
         }
       } )
     } )
-  }
-
-  remove () {
-    getEventListeners(window).DOMContentLoaded[count].remove()
   }
 }
