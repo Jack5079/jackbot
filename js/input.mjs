@@ -1,3 +1,4 @@
+/* global CustomEvent */
 import Message from './message.mjs'
 import { browser } from './users.mjs'
 

@@ -24,11 +24,11 @@ export default class Loader {
       let message = event.detail // Get the message
       message.reply = content => {
         // Add a reply function
-        new Message(content, options.user) // send msg
+        return new Message(content, options.user) // send msg
       }
       Object.keys(commands).forEach(name => {
         // For every command
-        if (message.content.split(' ')[0] == `${options.prefix}${name}`) {
+        if (message.content.split(' ')[0] === `${options.prefix}${name}`) {
           // If it matches a command
           const args = message.content
             .substring(options.prefix.length + 1 + name.length)

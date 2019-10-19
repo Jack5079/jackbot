@@ -8,7 +8,7 @@ window.addEventListener('beforeinstallprompt', e => {
   deferredPrompt = e
 })
 
-new Commands(
+const main = new Commands(
   {
     // The command list
     repeat (message, args) {
