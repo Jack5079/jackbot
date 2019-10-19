@@ -1,4 +1,4 @@
-import loadCommands from '../js/loader.mjs' // Import the loader
+import Commands from '../js/loader.mjs' // Import the loader
 
 let deferredPrompt
 window.addEventListener( 'beforeinstallprompt', ( e ) => {
@@ -8,7 +8,7 @@ window.addEventListener( 'beforeinstallprompt', ( e ) => {
   deferredPrompt = e;
 } )
 
-loadCommands( { // The command list
+new Commands( { // The command list
   repeat ( message, args ) { // Repeats what the user typed after
     message.reply( args.join( ' ' ) )
   },
