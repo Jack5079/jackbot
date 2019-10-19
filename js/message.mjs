@@ -7,7 +7,8 @@ export default class Message {
   * @author Jack5079
   * @param {String} content The content of the message
   * @param {Object} sender An object with a name and url property
-  * @example <caption>Create a message as a bot</caption>
+  * @example
+  * // Create a message as a bot
   * import Message from '../js/message.mjs'
   * const bot = {
   *    name: 'Your computer',
@@ -45,7 +46,8 @@ export default class Message {
   /**
   * Deletes the message.
   * @author Jack5079
-  * @example <caption>A say command</caption>
+  * @example 
+  * // A say command
   * import loader from '../js/loader.mjs'
   * new loader({
   *   say(message, args) {
