@@ -7,19 +7,20 @@ input {
   width: 100%;
   padding: 1em;
   left: 0;
-    position: fixed;
-    bottom: 0;
-    transition: backdrop-filter 1s, height 1s;
-    font-size: 1em;
+  position: fixed;
+  bottom: 0;
+  transition: height 1s;
+  font-size: 1em;
 }
+
 input::placeholder {
   font-style: italic;
   font-weight: lighter;
   color: white;
 }
+
 input:focus {
   height: 10%;
-  backdrop-filter: blur(5px);
   outline: 0;
 }
 
@@ -27,12 +28,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: white;
   font-size: 1.438em;
-  background: 
-      linear-gradient(
-      rgba(0, 0, 0, 0.5), 
-      rgba(0, 0, 0, 0.5)
-    ),
-  url('./images/milky-way-2695569_1920.jpg');
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/milky-way-2695569_1920.jpg');
 }
 
 img {
