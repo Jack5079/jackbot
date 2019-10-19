@@ -36,7 +36,6 @@ export default class Message {
     this.html.appendChild(text)
     document.body.appendChild(this.html)
     this.author = sender
-    this.createdAt = new Date()
   }
   get content () {
     return this.html.querySelector('p').innerText
