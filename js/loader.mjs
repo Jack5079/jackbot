@@ -1,7 +1,6 @@
 /** @module ../js/loader.mjs */
 import Message from './message.mjs'
 
-
 export default class Loader {
   /**
    * Loads commands and settings.
@@ -19,18 +18,24 @@ export default class Loader {
    * @param {Object} commands An object of functions.
    * @param {Object} options The options that will be used when loading.
    */
-    constructor ( commands, options ) {
-    document.querySelector( '#input' ).addEventListener( 'botmessage', event => { // For every keypress
+  constructor (commands, options) {
+    document.querySelector('#input').addEventListener('botmessage', event => {
+      // For every keypress
       let message = event.detail // Get the message
-      message.reply = content => { // Add a reply function
-        new Message( content, options.user ) // send msg
+      message.reply = content => {
+        // Add a reply function
+        new Message(content, options.user) // send msg
       }
-      Object.keys( commands ).forEach( ( name ) => { // For every command
-        if ( message.content.split( ' ' )[ 0 ] == `${ options.prefix }${ name }` ) { // If it matches a command
-          const args = message.content.substring( options.prefix.length + 1 + name.length ).split( ' ' ) // Make the args array
-          commands[ name ]( message, args ) // Run the command!
+      Object.keys(commands).forEach(name => {
+        // For every command
+        if (message.content.split(' ')[0] == `${options.prefix}${name}`) {
+          // If it matches a command
+          const args = message.content
+            .substring(options.prefix.length + 1 + name.length)
+            .split(' ') // Make the args array
+          commands[name](message, args) // Run the command!
         }
-      } )
-    } )
+      })
+    })
   }
 }
