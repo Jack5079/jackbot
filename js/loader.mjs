@@ -22,6 +22,12 @@ export default class Loader {
     this.listener = document.querySelector( '#input' ).addEventListener( 'botmessage', event => { // For every keypress
       let message = event.detail // Get the message
       message.reply = content => { // Add a reply function so more than one bot can run
+        if (!options.user)
+          new Message(content, {
+            name: 'No Bot Name',
+            url: './images/bot.png'
+          })
+        else
         new Message( content, options.user )
       }
       Object.keys( commands ).forEach( ( name ) => { // For every command
