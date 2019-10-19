@@ -1,0 +1,30 @@
+{
+  "name": "jackbot",
+  "version": "1.0.0",
+  "description": "Chatbot creator system",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "standard --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jack5079/jackbot-web.git"
+  },
+  "keywords": [
+    "bot",
+    "chatbot",
+    "web",
+    "html5",
+    "html"
+  ],
+  "author": "Jack5079",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jack5079/jackbot-web/issues"
+  },
+  "homepage": "https://github.com/Jack5079/jackbot-web#readme",
+  "dependencies": {
+    "standard": "^14.3.1"
+  }
+}
