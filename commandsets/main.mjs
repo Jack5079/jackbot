@@ -42,6 +42,10 @@ new Commands( { // The command list
         deferredPrompt = null;
       } )
     } else message.reply( 'Your browser doesn\'t support this feature.' )
+  },
+
+  docs(message) {
+    message.reply('https://jack5079.github.io/jackbot-web/docs/')
   }
 }, { // The options
   prefix: '-', // What you need to put at the start of the command
