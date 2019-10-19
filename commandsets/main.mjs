@@ -62,3 +62,5 @@ const main = new Commands(
     }
   }
 )
+
+console.log('Loaded commands!', main)
