@@ -57,4 +57,9 @@ export default class Message {
   delete () {
     this.html.remove()
   }
+
+
+  toString () {
+    return `${ this.author.name }: ${ this.content }`
+  }
 }
