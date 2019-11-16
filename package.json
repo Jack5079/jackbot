@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jack5079/jackbot-web.git"
+    "url": "git+https://github.com/Jack5079/jackbot.git"
   },
   "keywords": [
     "bot",
@@ -21,9 +21,9 @@
   "author": "Jack5079",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Jack5079/jackbot-web/issues"
+    "url": "https://github.com/Jack5079/jackbot/issues"
   },
-  "homepage": "https://github.com/Jack5079/jackbot-web#readme",
+  "homepage": "https://github.com/Jack5079/jackbot#readme",
   "dependencies": {
     "standard": "^14.3.1"
   }
