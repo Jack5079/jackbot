@@ -49,7 +49,7 @@ const main = new Commands(
           }
           deferredPrompt = null
         })
-      } else message.reply("Your browser doesn't support this feature.")
+      } 
     }
   },
   {
