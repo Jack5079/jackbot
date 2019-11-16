@@ -2,7 +2,10 @@
   "name": "jackbot",
   "version": "1.0.0",
   "description": "Chatbot creator system",
-  "main": "index.html",
+  "main": "./js/loader.mjs",
+  "browser": "./js/loader.mjs",
+  "module": "./js/loader.mjs",
+  "unpkg": "./js/loader.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "standard --fix"
