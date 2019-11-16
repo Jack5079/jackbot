@@ -4,13 +4,13 @@ input {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: white;
   border: 0;
-  width: 100%;
+  width: 95%;
   padding: 1em;
-  left: 0;
   position: fixed;
   bottom: 0;
-  transition: height 1s;
+  transition: height 1s, border 1s;
   font-size: 1em;
+  border-radius: 2em;
 }
 
 input::placeholder {
@@ -21,7 +21,7 @@ input::placeholder {
 
 input:focus {
   height: 10%;
-  outline: 0;
+  border: 10px solid blue;
 }
 
 body {
