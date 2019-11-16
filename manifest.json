@@ -4,7 +4,7 @@
     "name": "JackBot",
     "scope": "/jackbot/",
     "display": "standalone",
-    "start_url": "https://jack5079.tk/jackbot/",
+    "start_url": ".",
     "short_name": "JackBot",
     "theme_color": "black",
     "description": "jackbot is a stupid chatbot",
