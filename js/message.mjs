@@ -25,7 +25,7 @@ export default class Message {
     if (!sender.name) console.warn('No name of sender')
     if (!sender.url) console.warn('Please provide a URL in the sender object.')
     this.html = document.createElement('div')
-    const pfp = new Image
+    const pfp = new Image(100, 100)
     const text = document.createElement('p')
     const name = document.createElement('h2')
     name.innerText = sender.name
