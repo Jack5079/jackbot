@@ -29,7 +29,7 @@ export default class Loader {
       }
       Object.keys(commands).forEach(name => {
         // For every command
-        if (message.content.split(' ')[0] === `${options.prefix}${name}`) {
+        if (message.content.startsWith(`${options.prefix}${name} `) || message.content.split(' ')[0] == `${options.prefix}${name}`) {
           // If it matches a command
           const args = message.content
             .substring(options.prefix.length + 1 + name.length)
