@@ -20,9 +20,8 @@ export default class Loader {
    */
   constructor (commands, options) {
     this.deleted = false
-    document.querySelector('#input').addEventListener('botmessage', event => {
+    document.querySelector('#input').addEventListener('botmessage', event => { // When a message is sent
       if (!this.deleted) {
-      // For every keypress
       let message = event.detail // Get the message
       message.reply = content => {
         // Add a reply function
