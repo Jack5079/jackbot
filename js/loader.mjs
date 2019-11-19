@@ -29,7 +29,12 @@ export default class Loader {
       }
       Object.keys(commands).forEach(name => {
         // For every command
-        if (message.content.startsWith(`${options.prefix}${name} `) || message.content.split(' ')[0] == `${options.prefix}${name}`) {
+        // example commmand: -test hello
+        // example command with spaces: -a test hello
+        if (
+          message.content.startsWith(`${options.prefix}${name} `) // matches any command with a space after
+          || message.content == `${options.prefix}${name}`
+          ) { // matches commands that are just the command
           // If it matches a command
           const args = message.content
             .substring(options.prefix.length + 1 + name.length)
