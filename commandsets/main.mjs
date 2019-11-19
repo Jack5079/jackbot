@@ -1,3 +1,4 @@
+/* global user */
 import Commands from '../js/loader.mjs' // Import the loader
 
 let deferredPrompt
@@ -50,6 +51,12 @@ const main = new Commands(
           deferredPrompt = null
         })
       } 
+    },
+
+
+    changename (message, args) {
+      user.name = args.join(' ')
+      message.reply(`Changed your username to ${args.join(' ')}!`)
     }
   },
   {
