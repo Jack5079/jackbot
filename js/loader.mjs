@@ -19,7 +19,9 @@ export default class Loader {
    * @param {Object} options The options that will be used when loading.
    */
   constructor (commands, options) {
+    this.deleted = false
     document.querySelector('#input').addEventListener('botmessage', event => {
+      if (!this.deleted) {
       // For every keypress
       let message = event.detail // Get the message
       message.reply = content => {
@@ -36,6 +38,15 @@ export default class Loader {
           commands[name](message, args) // Run the command!
         }
       })
-    })
+    }
+  })
+  }
+
+  remove () {
+    this.deleted = true
+  }
+
+  restore () {
+    this.deleted = false
   }
 }
