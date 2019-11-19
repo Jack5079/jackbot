@@ -36,3 +36,14 @@ img {
   float: left;
   margin-right: 2em;
 }
+
+.message {
+  width: 100%;
+  height: max-content;
+}
+
+small {
+  opacity: 0.5;
+  font-size: 50%;
+  margin-left: 1em;
+}

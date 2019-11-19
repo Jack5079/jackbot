@@ -20,18 +20,23 @@ export default class Message {
     content,
     sender = { name: 'No Username', url: './images/bot.png' }
   ) {
+    this.time = new Date
     if (!content) throw Error('No content!')
     if (!sender) throw Error('You forgot to provide a sender!')
     if (!sender.name) console.warn('No name of sender')
     if (!sender.url) console.warn('Please provide a URL in the sender object.')
     this.html = document.createElement('div')
+    this.html.classList.add('message') // fixes a bug with the width
     const pfp = new Image(100, 100)
     const text = document.createElement('p')
     const name = document.createElement('h2')
+    const time = document.createElement('small')
+    time.innerText = this.time.toLocaleString()
     name.innerText = sender.name
     pfp.src = sender.url
     this.html.appendChild(pfp)
     this.html.appendChild(name)
+    name.appendChild(time)
     text.innerText = content
     this.html.appendChild(text)
     document.body.appendChild(this.html)
