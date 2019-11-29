@@ -2,6 +2,7 @@
 import Message from './message.mjs'
 
 export default class Loader {
+  deleted = false
   /**
    * Loads commands and settings.
    * @example <caption>A bot with a say command and the prefix "-"</caption>
@@ -19,7 +20,6 @@ export default class Loader {
    * @param {Object} options The options that will be used when loading.
    */
   constructor (commands, options) {
-    this.deleted = false
     document.querySelector('#input').addEventListener('botmessage', event => { // When a message is sent
       if (!this.deleted) {
       let message = event.detail // Get the message

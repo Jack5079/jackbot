@@ -1,6 +1,7 @@
 /** @module ../js/message.mjs */
 /** Class representing a message. */
 export default class Message {
+  time = new Date
   /**
    * Creates a message.
    * @constructor
@@ -20,7 +21,6 @@ export default class Message {
     content,
     sender = { name: 'No Username', url: './images/bot.png' }
   ) {
-    this.time = new Date
     if (!content) throw Error('No content!')
     if (!sender) throw Error('You forgot to provide a sender!')
     if (!sender.name) console.warn('No name of sender')
