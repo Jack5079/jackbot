@@ -19,7 +19,9 @@ export default class Loader {
    * @param {Object} commands An object of functions.
    * @param {Object} options The options that will be used when loading.
    */
-  constructor (commands, options) {
+  constructor (commands, options = {
+    prefix: '-'
+  }) {
     document.querySelector('#input').addEventListener('botmessage', event => { // When a message is sent
       if (!this.deleted) {
       let message = event.detail // Get the message
