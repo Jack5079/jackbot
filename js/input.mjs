@@ -1,4 +1,4 @@
-/* global CustomEvent */
+/* global CustomEvent, globalThis */
 import Message from './message.mjs'
 globalThis.user = {
   name: 'You',
@@ -6,12 +6,11 @@ globalThis.user = {
     '//yt3.ggpht.com/-7zFDHK5X45w/AAAAAAAAAAI/AAAAAAAAAAA/QJfHeLTEZwE/s900-c-k-no-mo-rj-c0xffffff/photo.jpg'
 }
 
-
 function send (e) {
   if (e.key === 'Enter') {
     // If it's enter
-    let message = new Message(e.currentTarget.value, user)
-    let env = new CustomEvent('botmessage', {
+    const message = new Message(e.currentTarget.value, user)
+    const env = new CustomEvent('botmessage', {
       detail: message
     })
     document.querySelector('#input').dispatchEvent(env)
