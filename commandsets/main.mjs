@@ -10,55 +10,7 @@ window.addEventListener('beforeinstallprompt', e => {
 })
 
 const main = new Commands(
-  {
-    // The command list
-    repeat (message, args) {
-      // Repeats what the user typed after
-      message.reply(args.join(' '))
-    },
-    new (message, args) {
-      // Lets users create a new command within the app
-      if (args.length) {
-        const name = args[0] // record the name before we remove it
-        args.shift() // remove the name
-        // eslint-disable-next-line no-new-func
-        this[name] = new Function('message', 'args', args.join(' ')) // make a command with the arguments that are left
-        message.reply(`🎉Created ${name}!`) // tell the user
-      }
-    },
-    say (message, args) {
-      // Like -repeat but it hides the message with the command
-      message.reply(args.join(' '))
-      message.delete()
-    },
-    votepoop (message) {
-      // I was requested to add this
-      message.reply('😎 i voted for poop')
-    },
-
-    install (message) {
-      if (deferredPrompt) {
-        deferredPrompt.prompt()
-        // Wait for the user to respond to the prompt
-        deferredPrompt.userChoice.then(choiceResult => {
-          if (choiceResult.outcome === 'accepted') {
-            message.reply('Thanks for installing JackBot Web!')
-          } else {
-            message.reply(
-              "You didn't install it? Sorry that our website wasn't worth installing!"
-            )
-          }
-          deferredPrompt = null
-        })
-      } 
-    },
-
-
-    changename (message, args) {
-      user.name = args.join(' ')
-      message.reply(`Changed your username to ${args.join(' ')}!`)
-    }
-  },
+  {},
   {
     // The options
     prefix: '-', // What you need to put at the start of the command
@@ -69,5 +21,54 @@ const main = new Commands(
     }
   }
 )
+
+main.add({
+  // The command list
+  repeat (message, args) {
+    // Repeats what the user typed after
+    message.reply(args.join(' '))
+  },
+  new (message, args) {
+    // Lets users create a new command within the app
+    if (args.length) {
+      const name = args[0] // record the name before we remove it
+      args.shift() // remove the name
+      // eslint-disable-next-line no-new-func
+      this[name] = new Function('message', 'args', args.join(' ')) // make a command with the arguments that are left
+      message.reply(`🎉Created ${name}!`) // tell the user
+    }
+  },
+  say (message, args) {
+    // Like -repeat but it hides the message with the command
+    message.reply(args.join(' '))
+    message.delete()
+  },
+  votepoop (message) {
+    // I was requested to add this
+    message.reply('😎 i voted for poop')
+  },
+
+  install (message) {
+    if (deferredPrompt) {
+      deferredPrompt.prompt()
+      // Wait for the user to respond to the prompt
+      deferredPrompt.userChoice.then(choiceResult => {
+        if (choiceResult.outcome === 'accepted') {
+          message.reply('Thanks for installing JackBot Web!')
+        } else {
+          message.reply(
+            "You didn't install it? Sorry that our website wasn't worth installing!"
+          )
+        }
+        deferredPrompt = null
+      })
+    }
+  },
+
+  changename (message, args) {
+    user.name = args.join(' ')
+    message.reply(`Changed your username to ${args.join(' ')}!`)
+  }
+})
 
 console.log('Loaded commands!', main)
