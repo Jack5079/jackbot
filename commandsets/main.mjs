@@ -48,20 +48,19 @@ main.add({
     message.reply('😎 i voted for poop')
   },
 
-  install (message) {
+  async install (message) {
     if (deferredPrompt) {
       deferredPrompt.prompt()
       // Wait for the user to respond to the prompt
-      deferredPrompt.userChoice.then(choiceResult => {
-        if (choiceResult.outcome === 'accepted') {
-          message.reply('Thanks for installing JackBot Web!')
-        } else {
-          message.reply(
-            "You didn't install it? Sorry that our website wasn't worth installing!"
-          )
-        }
-        deferredPrompt = null
-      })
+      const choiceResult = await deferredPrompt.userChoice
+      if (choiceResult.outcome === 'accepted') {
+        message.reply('Thanks for installing JackBot Web!')
+      } else {
+        message.reply(
+          "You didn't install it? Sorry that our website wasn't worth installing!"
+        )
+      }
+      deferredPrompt = null
     }
   },
 
