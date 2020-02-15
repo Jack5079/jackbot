@@ -25,6 +25,9 @@ class Bot extends Client {
             message.content === `${options.prefix}${cmdname}` // matches any command without arguments
         })
         message.reply = text => new Message(text, options.user)
+        message.channel = {
+          send: message.reply
+        }
         // Run the command!
         if (name) {
           this.commands[name](
