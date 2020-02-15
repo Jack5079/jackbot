@@ -19,34 +19,28 @@ class Bot extends Client {
       // When a message is sent
       if (!message.author.bot) {
         // not a bot
-        Object.keys(this.commands).forEach(name => {
-          // For every command
-          // example commmand: -test hello
-          // example command with spaces: -a test hello
-          if (
-            message.content.startsWith(`${options.prefix}${name} `) || // matches any command with a space after
-            message.content === `${options.prefix}${name}`
-          ) {
-            // matches commands that are just the command
-            // If it matches a command
-            const args = message.content
-              .substring(options.prefix.length + 1 + name.length)
-              .split(' ') // Make the args array
-            message.reply = str => {
-              return new Message(str, options.user)
-            }
-            console.log(
-              `${message.author.username} used the ${options.prefix}${name} command.`
-            )
-            this.commands[name](message, args, this) // Run the command!
-          }
+        // matches commands that are just the command
+        const name = Object.keys(this.commands).find(cmdname => {
+          return message.content.startsWith(`${options.prefix}${cmdname} `) || // matches any command with a space after
+            message.content === `${options.prefix}${cmdname}` // matches any command without arguments
         })
+        message.reply = text => new Message(text, options.user)
+        // Run the command!
+        if (name) {
+          this.commands[name](
+            message, // the message
+            // The arguments
+            message.content // the content of the message
+              .substring(options.prefix.length + 1 + name.length) // only the part after the command
+              .split(' ') // split with spaces
+            , this)
+        } // The bot
       }
     })
   }
 
   add (name, func) {
-    if (name && func) this.commands[name] = func
+    if (typeof name === 'string') this.commands[name] = func
     if (typeof name === 'object') {
       Object.keys(name).forEach(com => {
         this.commands[com] = name[com]
