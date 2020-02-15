@@ -1,7 +1,7 @@
+/* global Image */
 /** @module ../js/message.mjs */
 /** Class representing a message. */
 export default class Message {
-  time = new Date
   /**
    * Creates a message.
    * @constructor
@@ -25,6 +25,7 @@ export default class Message {
     if (!sender) throw Error('You forgot to provide a sender!')
     if (!sender.name) console.warn('No name of sender')
     if (!sender.url) console.warn('Please provide a URL in the sender object.')
+    this.time = new Date()
     this.html = document.createElement('div')
     this.html.classList.add('message') // fixes a bug with the width
     const pfp = new Image(100, 100)
@@ -42,6 +43,7 @@ export default class Message {
     document.body.appendChild(this.html)
     this.author = sender
   }
+
   get content () {
     return this.html.querySelector('p').innerText
   }

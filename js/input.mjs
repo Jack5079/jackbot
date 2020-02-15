@@ -1,4 +1,4 @@
-/* global CustomEvent, globalThis */
+/* global CustomEvent, globalThis, user */
 import Message from './message.mjs'
 globalThis.user = {
   name: 'You',
