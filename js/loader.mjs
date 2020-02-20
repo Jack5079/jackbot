@@ -1,4 +1,17 @@
 /* global user */
+
+/*
+  # HISTORY
+
+  This is the bot constructor of `jackbot-web`.
+
+  However, I made a port of this to discord.js, called `jackbot-discord`.
+
+  This module had more features than `jackbot-web`.
+
+  `jackbot-web` is now a port of `jackbot-discord` to the web.
+*/
+
 /** @module ../js/loader.mjs */
 import Message from './message.mjs'
 import Client from './client.mjs'
