@@ -1,3 +1,4 @@
+/* global user */
 /** @module ../js/loader.mjs */
 import Message from './message.mjs'
 import Client from './client.mjs'
@@ -24,9 +25,9 @@ class Bot extends Client {
           return message.content.startsWith(`${options.prefix}${cmdname} `) || // matches any command with a space after
             message.content === `${options.prefix}${cmdname}` // matches any command without arguments
         })
-        message.reply = text => new Message(text, options.user)
+        message.reply = text => new Message('@' + user.name + ', ' + text, options.user)
         message.channel = {
-          send: message.reply
+          send: text => new Message(text, options.user)
         }
         // Run the command!
         if (name) {
